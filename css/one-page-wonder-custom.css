@@ -1,0 +1,43 @@
+body {
+  background-image: url("img/greystyle.png");
+}
+
+.bg-alt-1 {
+  background-color: #ffc890;
+}
+
+.bg-alt-2 {
+  background-color: #ff9900;
+}
+
+.bg-alt-3 {
+  background-color: #509f00;
+}
+
+.fg-alt-3 {
+  color: #f7f9f6;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    font-weight: 600 !important;
+}
+
+a:link { text-decoration: none; color: #004e9e; }
+
+.media-body {
+  background-color: #ffffff;
+  padding: 1.5rem;
+}
+
+header.masthead {
+  background-image: url(../img/header.jpg);
+}
+
+header.masthead .bg-circle {
+  background: linear-gradient(0deg, #85bc22 0%, #85bc22 100%);
+}

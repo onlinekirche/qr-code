@@ -1,0 +1,268 @@
+<!--
+  - QR Code generator (HTML+JavaScript)
+  -
+  - Copyright (c) Project Nayuki. (MIT License)
+  - https://www.nayuki.io/page/qr-code-generator-library
+  -
+  - Permission is hereby granted, free of charge, to any person obtaining a copy of
+  - this software and associated documentation files (the "Software"), to deal in
+  - the Software without restriction, including without limitation the rights to
+  - use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of
+  - the Software, and to permit persons to whom the Software is furnished to do so,
+  - subject to the following conditions:
+  - * The above copyright notice and this permission notice shall be included in
+  -   all copies or substantial portions of the Software.
+  - * The Software is provided "as is", without warranty of any kind, express or
+  -   implied, including but not limited to the warranties of merchantability,
+  -   fitness for a particular purpose and noninfringement. In no event shall the
+  -   authors or copyright holders be liable for any claim, damages or other
+  -   liability, whether in an action of contract, tort or otherwise, arising from,
+  -   out of or in connection with the Software or the use or other dealings in the
+  -   Software.
+  -->
+<!DOCTYPE html>
+<html lang="de">
+
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="QR-Code Generator">
+    <meta name="keywords" content="QR, Code, Generator, Kirche">
+    <meta name="author" content="OnlineKirche, Joerg Sorge, Nayuki">
+    <!-- <meta http-equiv="cache-control" content="no-cache" />-->
+
+    <meta property="og:title" content="QR-Code Generator" />
+    <meta property="og:description" content="Ein Projekt der OnlineKirche/ Evangelische Kirche in Mitteldeutschland" />
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://onlinekirche.net/qr" />
+
+    <meta property="og:image" content="https://onlinekirche.net/qr/img/og_img.jpg" />
+    <meta property="og:image:secure_url" content="https://onlinekirche.net/qr/img/og_img.jpg" />
+    <meta property="og:image:type" content="image/jpeg" />
+    <meta property="og:image:width" content="1660" />
+    <meta property="og:image:height" content="1360" />
+    <meta property="og:image:alt" content="QR-Code in der Kirche" />
+
+    <title>QR-Code Generator</title>
+
+    <!-- Bootstrap core CSS -->
+    <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Custom styles for this template -->
+    <link href="css/one-page-wonder.css" rel="stylesheet">
+    <link href="css/one-page-wonder-custom.css" rel="stylesheet">
+    <style type="text/css">
+    td {
+        vertical-align: top;
+        padding-top: 0.2em;
+        padding-bottom: 0.2em;
+    }
+    td:first-child {
+        white-space: pre;
+        padding-right: 0.5em;
+    }
+    input[type=radio], input[type=checkbox] {
+        margin: 0em;
+        padding: 0em;
+    }
+    input[type=radio] + label, input[type=checkbox] + label {
+        margin-right: 0.8em;
+        padding-left: 0.2em;
+    }
+    </style>
+
+    <!-- Matomo -->
+    <script type="text/javascript">
+      var _paq = window._paq || [];
+      /* tracker methods like "setCustomDimension" should be called before "trackPageView" */
+      _paq.push(['trackPageView']);
+      _paq.push(['enableLinkTracking']);
+      (function() {
+        var u="https://onlinekirche.net/piwik/";
+        _paq.push(['setTrackerUrl', u+'matomo.php']);
+        _paq.push(['setSiteId', '4']);
+        var d=document, g=d.createElement('script'), s=d.getElementsByTagName('script')[0];
+        g.type='text/javascript'; g.async=true; g.defer=true; g.src=u+'matomo.js'; s.parentNode.insertBefore(g,s);
+      })();
+    </script>
+    <!-- End Matomo Code -->
+
+  </head>
+
+  <body>
+      <!-- Bootstrap core JavaScript -->
+      <!-- Must load before commentics -->
+      <script src="vendor/jquery/jquery.min.js"></script>
+      <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+
+    <!-- Navigation -->
+    <nav class="navbar navbar-expand-lg navbar-dark navbar-custom fixed-top">
+      <div class="container">
+        <a class="navbar-brand" href="#">Home</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarResponsive">
+          <ul class="navbar-nav ml-auto">
+            <li class="nav-item">
+              <a class="nav-link" href="#generator">Code Generator</a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+
+    <header class="masthead text-center text-white">
+      <div class="masthead-content">
+        <div class="container">
+            <h1 class="masthead-heading"> <br>  </h1>
+            <h1 class="masthead-heading"> <br>  </h1>
+            <h1 class="masthead-heading"> <br>  </h1>
+            <h1 class="masthead-heading"> <br>  </h1>
+            <h1 class="masthead-heading mb-0">QR-Code Generator</h1>
+            <h1 class="masthead-heading"> </h1>
+        </div>
+      </div>
+    </header>
+
+    <section>
+      <div class="container">
+        <div class="row">
+          <div class="col-lg-12">
+            <div class="p-5">
+                <h2 class="text-center">QR-Code Generator</h2>
+                <p class="text-center">
+                    QR-Codes können ein nützliches Hilfsmittel sein.<br>
+                    In diesem Beitrag ist ein <a href="https://onlinekirche.ekmd.de/tools/qr-code-im-gottesdienst.html" target="_blank">Anwendungsbeispiel</a> erklärt.
+                </p>
+                <p class="text-center">
+                    Zum Erzeugen der Codes stellt die OnlineKirche hier ein Hilfsmittel zur Verfügung. <br>Warum?<br>
+                    Es gibt zwar viele QR-Code-Generatoren im Netz. Es ist aber nicht immer ersichtlich, ob die eingegebenen Daten in irgendeiner Form weiterverarbeitet werden.
+                    Wir nutzen hier die OpenSource Bibliothek von Nayuki. Der Code kann auf dieser <a href="https://www.nayuki.io/page/qr-code-generator-library" target="_blank">Projektseite</a> überprüft werden.
+                </p>
+                <h3 class="text-center">Noch zwei Schritte zum QR-Code</h3>
+                <p class="text-center">
+                    1. Geben Sie in das Textfeld unten den gewünschten Text ein.<br>
+                    2. Laden Sie mit der rechten Maustaste den erzeugten Code als Bild-Datei herunter.
+                </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="generator">
+      <div class="container bg-alt-3">
+        <div class="row">
+          <div class="col-lg-12">
+            <div class="p-5">
+
+              <form action="#" method="get" onsubmit="return false;">
+                  <div class="table-responsive">
+                  <table class="table" style="width:100%">
+                      <tbody>
+                          <tr>
+                              <td><strong>Text</strong></td>
+                              <td style="width:100%"><textarea placeholder="Text zur Erzeugung des QR Codes hier eingeben" id="text-input" style="width:100%; max-width:30em; height:5em; font-family:inherit"></textarea></td>
+                          </tr>
+                          <tr>
+                              <td><strong>QR Code</strong></td>
+                              <td>
+                                  <canvas id="qrcode-canvas" style="padding:1em; background-color:#E8E8E8"></canvas>
+                                  <svg id="qrcode-svg" style="width:30em; height:30em; padding:1em; background-color:#E8E8E8">
+                                      <rect width="100%" height="100%" fill="#FFFFFF" stroke-width="0"></rect>
+                                      <path d="" fill="#000000" stroke-width="0"></path>
+                                  </svg>
+                              </td>
+                          </tr>
+                          <tr>
+                              <td><strong>Fehlerkorrektur</strong></td>
+                              <td>
+                                  <input type="radio" name="errcorlvl" id="errcorlvl-low" checked="checked"><label for="errcorlvl-low">Niedrig</label>
+                                  <input type="radio" name="errcorlvl" id="errcorlvl-medium"><label for="errcorlvl-medium">Mittel</label>
+                                  <input type="radio" name="errcorlvl" id="errcorlvl-quartile"><label for="errcorlvl-quartile">Besser</label>
+                                  <input type="radio" name="errcorlvl" id="errcorlvl-high"><label for="errcorlvl-high">Hoch</label>
+                              </td>
+                          </tr>
+                          <tr>
+                              <td>Ausgabeformat</td>
+                              <td>
+                                  <input type="radio" name="output-format" id="output-format-bitmap" checked="checked"><label for="output-format-bitmap">Bitmap</label>
+                                  <input type="radio" name="output-format" id="output-format-vector"><label for="output-format-vector">Vector</label>
+                              </td>
+                          </tr>
+                          <tr>
+                              <td>Ränder</td>
+                              <td><input type="number" value="4" min="0" max="100" step="1" id="border-input" style="width:4em"> Module</td>
+                          </tr>
+                          <tr id="scale-row">
+                              <td>Skalierung</td>
+                              <td><input type="number" value="8" min="1" max="30" step="1" id="scale-input" style="width:4em"> Pixel pro Modul</td>
+                          </tr>
+                          <tr>
+                              <td>Versionsbreich</td>
+                              <td>
+                                  Minimum = <input type="number" value="1"  min="1" max="40" step="1" id="version-min-input" style="width:4em" oninput="app.handleVersionMinMax('min');">,
+                                  maximum = <input type="number" value="40" min="1" max="40" step="1" id="version-max-input" style="width:4em" oninput="app.handleVersionMinMax('max');">
+                              </td>
+                          </tr>
+                          <tr>
+                              <td>Vorlage</td>
+                              <td><input type="number" value="-1" min="-1" max="7" step="1" id="mask-input" style="width:4em"> (−1 für automatisch, 0 to 7 für manuell)</td>
+                          </tr>
+                          <tr>
+                              <td>Fehlerk.</td>
+                              <td><input type="checkbox" checked="checked" id="boost-ecc-input"><label for="boost-ecc-input">Verbessere <abbr title="error-correcting code">Fehlerkorrekturstufe</abbr> mit gleicher Version</label></td>
+                          </tr>
+                          <tr>
+                              <td>Statistik</td>
+                              <td id="statistics-output" style="white-space:pre"></td>
+                          </tr>
+                          <tr id="svg-xml-row">
+                              <td>SVG XML code:</td>
+                              <td>
+                                  <textarea id="svg-xml-output" readonly="readonly" style="width:100%; max-width:50em; height:15em; font-family:monospace"></textarea>
+                              </td>
+                          </tr>
+                      </tbody>
+                  </table>
+                  </div>
+              </form>
+              <script type="application/javascript" src="res/qr-code-generator-library/qrcodegen.js"></script>
+              <script type="application/javascript" src="res/qr-code-generator-library/qrcodegen-demo.js"></script>
+
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section>
+      <div class="container">
+        <div class="row">
+          <div class="col-lg-12">
+            <div class="p-5">
+              <p class="text-center">Ein Projekt der <a href="https://onlinekirche.ekmd.de" target="_blank">OnlineKirche</a></p>
+              <p class="text-center"><a href="https://onlinekirche.ekmd.de/service/impressum/" target="_blank">Impressum</a><br>
+              <a href="https://onlinekirche.ekmd.de/service/datenschutz/" target="_blank">Datenschutz</a></p>
+            </div>
+          </div>
+       </div>
+      </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="py-5 bg-black">
+      <div class="container">
+        <p class="m-0 text-center text-white small">
+            Credits to <br>
+            <a href="https://github.com/BlackrockDigital/startbootstrap-one-page-wonder" target= "_blank">BlackrockDigital (html5)</a>
+            <br>
+            <a href="https://www.nayuki.io/page/qr-code-generator-library" target="_blank">Nayuki (QR)</a>
+        </p>
+      </div>
+      <!-- /.container -->
+    </footer>
+
+  </body>
+</html>
